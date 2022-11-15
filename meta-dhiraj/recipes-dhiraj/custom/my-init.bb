@@ -10,10 +10,15 @@ SRC_URI = "\
   file://start-wifi.sh \
   "
 
-inherit update-rc.d
-INITSCRIPT_PACKAGES = "${PN}"
-INITSCRIPT_NAME:${PN} = "start-wifi.sh"
+# Not Needed for now @dhirajbennadi
+#inherit update-rc.d
+#INITSCRIPT_PACKAGES = "${PN}"
+#INITSCRIPT_NAME:${PN} = "start-wifi.sh"
 
+#INITSCRIPT_PACKAGES = "${PN}"
+INITSCRIPT_NAME = "start-wifi.sh"
+INITSCRIPT_PARAMS = "start 99 2 3 4 5 ."
+inherit update-rc.d
 
 do_configure () {
 	:
