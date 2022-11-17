@@ -4,7 +4,16 @@ ENABLE_UART = "1"
 DISTRO_FEATURES_append = " wifi"
 IMAGE_FEATURES_append = " ssh-server-openssh splash"
 #IMAGE_FEATURES_remove = "debug-tweaks"
-IMAGE_INSTALL_append = " wpa-supplicant python3 vim net-tools my-init"
+IMAGE_INSTALL_append = " wpa-supplicant \
+                         python3  \
+                         vim \  
+                         net-tools \
+                         paho-mqtt-c \
+                         cronie \
+                         htop \
+                         bash \
+                         my-init \
+                         "
 
 inherit core-image
 
