@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 # Set this with the path to your assignments rep.  Use ssh protocol and see lecture notes
 # about how to setup ssh-agent for passwordless access
 #BB_STRICT_CHECKSUM = "0"
-SRC_URI = "https://github.com/dhirajbennadi/aesd-final-project.git;protocol=https;branch=main"
+SRC_URI = "git@github.com:dhirajbennadi/aesd-final-project.git;protocol=ssh;branch=main"
 
 PV = "1.0+git${SRCPV}"
 
@@ -20,7 +20,7 @@ S = "${WORKDIR}"
 
 # Add the aesdsocket application and any other files you need to install
 # See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
-FILES_${PN} += "${bindir}/mqttApp"
+FILES_${PN} += "${bindir}/mqttapp"
 #FILES_${PN} += "${sysconfdir}/init.d/aesdsocket-start-stop"
 # customize these as necessary for any libraries you need for your application
 TARGET_LDFLAGS += "-lpaho-mqtt3cs"
@@ -45,9 +45,9 @@ do_install () {
   # install destination dir /usr/bin (bindir) 
   install -m 0755 -d ${D}${bindir}
   # install aesdsocket to /usr/bin
-  install -m 0755 ${S}/mqttApp ${D}${bindir}/
+  install -m 0755 ${S}/mqttapp ${D}${bindir}/
 
-  install -m 0755 -d ${D}${sysconfdir}/mqttApp
+  install -m 0755 -d ${D}${sysconfdir}/mqttapp
   # install destination dir /etc/init.d (sysconfdir)
   #install -m 0755 -d ${D}${sysconfdir}/init.d
   # install aesdsocket-start-stop.sh 
