@@ -20,7 +20,7 @@ S = "${WORKDIR}"
 
 # Add the aesdsocket application and any other files you need to install
 # See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
-FILES_${PN} += "${bindir}/mqttapp"
+FILES_${PN} += "${bindir}/mqtt"
 #FILES_${PN} += "${sysconfdir}/init.d/aesdsocket-start-stop"
 # customize these as necessary for any libraries you need for your application
 TARGET_LDFLAGS += "-lpaho-mqtt3cs"

@@ -13,7 +13,7 @@ IMAGE_INSTALL_append = " wpa-supplicant \
                          htop \
                          bash \
                          my-init \
-                         mqttapp \
+                         mqtt \
                          "
 
 inherit core-image
