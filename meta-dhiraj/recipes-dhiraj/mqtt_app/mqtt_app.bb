@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 # Set this with the path to your assignments rep.  Use ssh protocol and see lecture notes
 # about how to setup ssh-agent for passwordless access
 #BB_STRICT_CHECKSUM = "0"
-SRC_URI = "git@github.com:dhirajbennadi/aesd-final-project.git;protocol=ssh;branch=main"
+SRC_URI = "https://github.com/dhirajbennadi/aesd-final-project.git;protocol=https;branch=main"
 
 PV = "1.0+git${SRCPV}"
 
