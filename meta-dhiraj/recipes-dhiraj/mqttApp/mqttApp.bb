@@ -20,7 +20,7 @@ S = "${WORKDIR}"
 
 # Add the aesdsocket application and any other files you need to install
 # See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
-FILES_${PN} += "${bindir}/mqtt_app"
+FILES_${PN} += "${bindir}/mqttApp"
 #FILES_${PN} += "${sysconfdir}/init.d/aesdsocket-start-stop"
 # customize these as necessary for any libraries you need for your application
 TARGET_LDFLAGS += "-lpaho-mqtt3cs"
@@ -45,9 +45,9 @@ do_install () {
   # install destination dir /usr/bin (bindir) 
   install -m 0755 -d ${D}${bindir}
   # install aesdsocket to /usr/bin
-  install -m 0755 ${S}/mqtt_app ${D}${bindir}/
+  install -m 0755 ${S}/mqttApp ${D}${bindir}/
 
-  install -m 0755 -d ${D}${sysconfdir}/mqtt_app
+  install -m 0755 -d ${D}${sysconfdir}/mqttApp
   # install destination dir /etc/init.d (sysconfdir)
   #install -m 0755 -d ${D}${sysconfdir}/init.d
   # install aesdsocket-start-stop.sh 
