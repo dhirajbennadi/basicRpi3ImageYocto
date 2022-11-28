@@ -1,6 +1,6 @@
 #!/bin/bash
-# Script to build image for raspberry pi 4 (64-bit)
-# Authors: Siddhant Jajoo, Jake Michael
+# Script to build image for raspberry pi 3B
+# Authors: Siddhant Jajoo, Jake Michael , Dhiraj Bennadi
 
 git submodule init
 git submodule sync
