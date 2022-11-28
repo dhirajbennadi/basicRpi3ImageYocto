@@ -15,9 +15,15 @@ SRC_URI = "\
 #INITSCRIPT_PACKAGES = "${PN}"
 #INITSCRIPT_NAME:${PN} = "start-wifi.sh"
 
+INITSCRIPT_PACKAGES                 = "${PN} ${PN}-ntp"
+INITSCRIPT_NAME_${PN}               = "start-wifi.sh"
+INITSCRIPT_PARAMS_${PN}             = "start 99 2 3 4 5 ."
+INITSCRIPT_NAME_${PN}-ntp   = "ntp-start.sh"
+INITSCRIPT_PARAMS_${PN}-ntp = "start 1 2 3 4 5 ."
+
 #INITSCRIPT_PACKAGES = "${PN}"
-INITSCRIPT_NAME = "start-wifi.sh"
-INITSCRIPT_PARAMS = "start 99 2 3 4 5 ."
+#INITSCRIPT_NAME = "start-wifi.sh"
+#INITSCRIPT_PARAMS = "start 99 2 3 4 5 ."
 inherit update-rc.d
 
 do_configure () {
@@ -31,4 +37,5 @@ do_compile () {
 do_install () {
   install -m 0755 -d ${D}${sysconfdir}/init.d
   install -m 0755 ${THISDIR}/${PN}/start-wifi.sh ${D}${sysconfdir}/init.d
+  install -m 0755 ${THISDIR}/${PN}/ntp-start.sh ${D}${sysconfdir}/init.d
 }
