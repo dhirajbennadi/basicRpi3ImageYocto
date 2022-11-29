@@ -6,6 +6,7 @@ IMAGE_FEATURES_append = " ssh-server-openssh splash"
 #IMAGE_FEATURES_remove = "debug-tweaks"
 IMAGE_INSTALL_append = " wpa-supplicant \
                          python3  \
+                         ntp \
                          vim \  
                          net-tools \
                          paho-mqtt-c \
