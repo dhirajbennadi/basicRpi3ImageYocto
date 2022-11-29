@@ -14,7 +14,7 @@ SRC_URI = "git://git@github.com/dhirajbennadi/aesd-final-project.git;protocol=ss
 PV = "1.0+git${SRCPV}"
 
 # Set to reference a specific commit hash in your assignment repo
-SRCREV = "4944c8418208cd5906d44dc0e23dbcf35aac7f66"
+SRCREV = "210cd9e1314e0836bc2aa84ee1aa0a9fd8797c14"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-WORKDIR
@@ -23,20 +23,13 @@ SRCREV = "4944c8418208cd5906d44dc0e23dbcf35aac7f66"
 
 S = "${WORKDIR}/git/ntp/"
 
-# Add the aesdsocket application and any other files you need to install
-# See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
-FILES_${PN} += "${bindir}/socket"
-#FILES_${PN} += "${sysconfdir}/init.d/aesdsocket-start-stop"
-# customize these as necessary for any libraries you need for your application
-# TARGET_LDFLAGS += "-lpaho-mqtt3cs"
-# EXTRA_OEMAKE_append = " 'TARGET_BUILD=1'"
+FILES_${PN} += "${bindir}/ntpApp"
 
-# DEPENDS = "paho-mqtt-c"
+INITSCRIPT_PACKAGES     = "${PN}"
+INITSCRIPT_NAME_${PN}   = "ntp-start.sh"
+INITSCRIPT_PARAMS_${PN} = "start 1 2 3 4 5 ."
 
-# Needed to configure start script with update-rc-d class
-#INITSCRIPT_PACKAGES = "${PN}"
-#INITSCRIPT_NAME_${PN} = "aesdsocket-start-stop.sh"
-#inherit update-rc.d
+inherit update-rc.d
 
 do_configure () {
 	:
@@ -56,4 +49,8 @@ do_install () {
   # Configuration File
   install -m 0755 ${S}/ntp.conf ${D}${bindir}/
   install -m 0755 -d ${D}${sysconfdir}/ntp.conf
+
+  #Start Up Script
+  install -m 0755 -d ${D}${sysconfdir}/init.d
+  install -m 0755 ${S}/ntp-start.sh ${D}${sysconfdir}/init.d
 }

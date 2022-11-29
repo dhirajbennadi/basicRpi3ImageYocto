@@ -8,7 +8,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI = "\
   file://start-wifi.sh \
-  file://ntp-start.sh \
   "
 
 # Not Needed for now @dhirajbennadi
@@ -18,16 +17,13 @@ SRC_URI = "\
 
 #ntp-start.sh
 
-INITSCRIPT_PACKAGES                 = "${PN} ${PN}-wifi"
-INITSCRIPT_NAME_${PN}               = "ntp-start.sh"
-INITSCRIPT_PARAMS_${PN}             = "start 99 2 3 4 5 ."
-INITSCRIPT_NAME_${PN}-wifi   = "start-wifi.sh"
-INITSCRIPT_PARAMS_${PN}-wifi = "start 1 2 3 4 5 ."
+INITSCRIPT_PACKAGES                 = "${PN}"
+#INITSCRIPT_NAME_${PN}               = "ntp-start.sh"
+#INITSCRIPT_PARAMS_${PN}             = "start 99 2 3 4 5 ."
+INITSCRIPT_NAME_${PN}   = "start-wifi.sh"
+INITSCRIPT_PARAMS_${PN} = "start 1 2 3 4 5 ."
 
-#INITSCRIPT_PACKAGES = "${PN}"
-#INITSCRIPT_NAME = "start-wifi.sh"
-#INITSCRIPT_PARAMS = "start 99 2 3 4 5 ."
-inherit autotools update-rc.d
+inherit update-rc.d
 
 do_configure () {
 	:
@@ -40,5 +36,7 @@ do_compile () {
 do_install () {
   install -m 0755 -d ${D}${sysconfdir}/init.d
   install -m 0755 ${THISDIR}/${PN}/start-wifi.sh ${D}${sysconfdir}/init.d
-  install -m 0755 ${THISDIR}/${PN}/ntp-start.sh ${D}${sysconfdir}/init.d
+
+  # Dont need this for now. Change of Strategy
+  #install -m 0755 ${THISDIR}/${PN}/ntp-start.sh ${D}${sysconfdir}/init.d
 }
