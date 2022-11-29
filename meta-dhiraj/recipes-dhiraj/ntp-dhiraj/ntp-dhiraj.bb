@@ -44,7 +44,8 @@ do_install () {
   install -m 0755 -d ${D}${bindir}
   # install aesdsocket to /usr/bin
   install -m 0755 ${S}/ntpApp ${D}${bindir}/
-  install -m 0755 -d ${D}${sysconfdir}/ntpApp
+  
+  #install -m 0755 -d ${D}${sysconfdir}/ntpApp
 
   # Configuration File
   #install -m 0755 ${S}/ntp.conf ${D}${bindir}/
