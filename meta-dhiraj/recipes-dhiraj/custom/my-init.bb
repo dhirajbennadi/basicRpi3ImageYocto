@@ -16,11 +16,13 @@ SRC_URI = "\
 #INITSCRIPT_PACKAGES = "${PN}"
 #INITSCRIPT_NAME:${PN} = "start-wifi.sh"
 
-INITSCRIPT_PACKAGES                 = "${PN} ${PN}-ntp"
-INITSCRIPT_NAME_${PN}               = "start-wifi.sh"
+#ntp-start.sh
+
+INITSCRIPT_PACKAGES                 = "${PN} ${PN}-wifi"
+INITSCRIPT_NAME_${PN}               = "ntp-start.sh"
 INITSCRIPT_PARAMS_${PN}             = "start 99 2 3 4 5 ."
-INITSCRIPT_NAME_${PN}-ntp   = "ntp-start.sh"
-INITSCRIPT_PARAMS_${PN}-ntp = "start 1 2 3 4 5 ."
+INITSCRIPT_NAME_${PN}-wifi   = "start-wifi.sh"
+INITSCRIPT_PARAMS_${PN}-wifi = "start 1 2 3 4 5 ."
 
 #INITSCRIPT_PACKAGES = "${PN}"
 #INITSCRIPT_NAME = "start-wifi.sh"

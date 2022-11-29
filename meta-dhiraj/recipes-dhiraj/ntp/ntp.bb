@@ -15,13 +15,21 @@ PV = "1.0+git${SRCPV}"
 
 # Set to reference a specific commit hash in your assignment repo
 # Change the revision for socket
+<<<<<<< HEAD
 SRCREV = "e122dae575ec967dbd1a283d5d4658b774620a26"  
+=======
+SRCREV = "e6ff6e00018ac1f9df6117eb1df4c43360f24cd3"  
+>>>>>>> 5581ab13197aff16fff06e2d44863c099c09115e
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-WORKDIR
 # We reference the "server" directory here to build from the "server" directory
 # in your assignments repo
+<<<<<<< HEAD
 S = "${WORKDIR}/git/socket/"
+=======
+S = "${WORKDIR}/git/ntp/"
+>>>>>>> 5581ab13197aff16fff06e2d44863c099c09115e
 
 # Add the aesdsocket application and any other files you need to install
 # See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
@@ -51,8 +59,9 @@ do_install () {
   install -m 0755 -d ${D}${bindir}
   # install aesdsocket to /usr/bin
   install -m 0755 ${S}/ntpApp ${D}${bindir}/
+  install -m 0755 -d ${D}${sysconfdir}/ntpApp
 
+  # Configuration File
   install -m 0755 ${S}/ntp.conf ${D}${bindir}/
-
   install -m 0755 -d ${D}${sysconfdir}/ntp.conf
 }
