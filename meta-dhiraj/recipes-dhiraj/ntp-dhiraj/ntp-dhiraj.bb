@@ -47,8 +47,8 @@ do_install () {
   install -m 0755 -d ${D}${sysconfdir}/ntpApp
 
   # Configuration File
-  install -m 0755 ${S}/ntp.conf ${D}${bindir}/
-  install -m 0755 -d ${D}${sysconfdir}/ntp.conf
+  #install -m 0755 ${S}/ntp.conf ${D}${bindir}/
+  #install -m 0755 -d ${D}${sysconfdir}/ntp.conf
 
   #Start Up Script
   install -m 0755 -d ${D}${sysconfdir}/init.d
