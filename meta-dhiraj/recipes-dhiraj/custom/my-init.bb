@@ -8,6 +8,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI = "\
   file://start-wifi.sh \
+  file://ntp-start.sh \
   "
 
 # Not Needed for now @dhirajbennadi
@@ -24,7 +25,7 @@ INITSCRIPT_PARAMS_${PN}-ntp = "start 1 2 3 4 5 ."
 #INITSCRIPT_PACKAGES = "${PN}"
 #INITSCRIPT_NAME = "start-wifi.sh"
 #INITSCRIPT_PARAMS = "start 99 2 3 4 5 ."
-inherit update-rc.d
+inherit autotools update-rc.d
 
 do_configure () {
 	:
