@@ -2,7 +2,7 @@
 # Script to clean build yocto recipes
 # Authors: Dhiraj Bennadi
 
-cd buildroot
+cd build
 
 pwd
 
