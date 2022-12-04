@@ -17,7 +17,7 @@ IMAGE_INSTALL_append = " wpa-supplicant \
                          mqtt \
                          socket \
                          ntp-dhiraj \
-                         mqttify \
+                         mqttify-dh \
                          "
 
 inherit core-image
