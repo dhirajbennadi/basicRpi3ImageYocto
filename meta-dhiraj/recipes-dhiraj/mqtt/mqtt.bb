@@ -49,9 +49,9 @@ do_install () {
   # install destination dir /usr/bin (bindir) 
   install -m 0755 -d ${D}${bindir}
   # install aesdsocket to /usr/bin
-  install -m 0755 ${S}/mqttify ${D}${bindir}/
+  install -m 0755 ${S}/mqttapp ${D}${bindir}/
 
-  install -m 0755 -d ${D}${sysconfdir}/mqttify
+  install -m 0755 -d ${D}${sysconfdir}/mqttapp
   # install destination dir /etc/init.d (sysconfdir)
   # install -m 0755 -d ${D}${sysconfdir}/init.d
   # install aesdsocket-start-stop.sh 

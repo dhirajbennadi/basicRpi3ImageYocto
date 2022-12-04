@@ -20,11 +20,11 @@ SRCREV = "2792a08f91c7bd295e3e7c3b4ea85f3fb7c9fc15"
 # https://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-WORKDIR
 # We reference the "server" directory here to build from the "server" directory
 # in your assignments repo
-S = "${WORKDIR}/git/mqttif/"
+S = "${WORKDIR}/git/mqtt-dhiraj/"
 
 # Add the aesdsocket application and any other files you need to install
 # See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
-FILES_${PN} += "${bindir}/mqttify"
+FILES_${PN} += "${bindir}/mqtt-dhiraj"
 #FILES_${PN} += "${sysconfdir}/init.d/aesdsocket-start-stop"
 # customize these as necessary for any libraries you need for your application
 TARGET_LDFLAGS += "-lpaho-mqtt3cs"

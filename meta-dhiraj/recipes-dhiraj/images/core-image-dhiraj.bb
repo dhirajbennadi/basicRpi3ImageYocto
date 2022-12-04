@@ -15,6 +15,7 @@ IMAGE_INSTALL_append = " wpa-supplicant \
                          bash \
                          my-init \
                          mqtt \
+                         mqtt-dhiraj \
                          socket \
                          ntp-dhiraj \
                          "
