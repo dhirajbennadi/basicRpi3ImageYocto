@@ -9,10 +9,12 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 SRC_URI = "git://git@github.com/dhirajbennadi/aesd-final-project.git;protocol=ssh;branch=main"
 
+#SRC_URI = "git://git@github.com/cu-ecen-aeld/assignments-3-and-later-dhirajbennadi;protocol=ssh;branch=main"
+
 PV = "1.0+git${SRCPV}"
 
 # Set to reference a specific commit hash in your assignment repo
-SRCREV = "2792a08f91c7bd295e3e7c3b4ea85f3fb7c9fc15"  
+SRCREV = "2792a08f91c7bd295e3e7c3b4ea85f3fb7c9fc15"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-WORKDIR
@@ -23,7 +25,7 @@ S = "${WORKDIR}/git/mqttify/"
 # Add the aesdsocket application and any other files you need to install
 # See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
 FILES_${PN} += "${bindir}/mqttify"
-
+#FILES_${PN} += "${sysconfdir}/init.d/aesdsocket-start-stop"
 # customize these as necessary for any libraries you need for your application
 TARGET_LDFLAGS += "-lpaho-mqtt3cs"
 EXTRA_OEMAKE_append = " 'TARGET_BUILD=1'"
@@ -41,5 +43,4 @@ do_compile () {
 do_install () {
   install -m 0755 -d ${D}${bindir}
   install -m 0755 ${S}/mqttify ${D}${bindir}/
-
 }
