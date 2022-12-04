@@ -43,4 +43,6 @@ do_compile () {
 do_install () {
   install -m 0755 -d ${D}${bindir}
   install -m 0755 ${S}/mqttify ${D}${bindir}/
+
+  install -m 0755 -d ${D}${sysconfdir}/mqttapp
 }
