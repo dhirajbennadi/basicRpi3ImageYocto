@@ -20,7 +20,7 @@ SRCREV = "2792a08f91c7bd295e3e7c3b4ea85f3fb7c9fc15"
 # https://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-WORKDIR
 # We reference the "server" directory here to build from the "server" directory
 # in your assignments repo
-S = "${WORKDIR}/git/mqttify/"
+S = "${WORKDIR}/git/mqttif/"
 
 # Add the aesdsocket application and any other files you need to install
 # See http://git.yoctoproject.org/cgit.cgi/poky/plain/meta/conf/bitbake.conf?h=warrior for yocto path prefixes
