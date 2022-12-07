@@ -14,7 +14,7 @@ SRC_URI = "git://git@github.com/dhirajbennadi/aesd-final-project.git;protocol=ss
 PV = "1.0+git${SRCPV}"
 
 # Set to reference a specific commit hash in your assignment repo
-SRCREV = "4f6129d5c76ad1bc74ff190a63322883a33f8745"
+SRCREV = "51fb5888e050524fb7de8fa0040384d3e0a28cf3"
 
 # This sets your staging directory based on WORKDIR, where WORKDIR is defined at 
 # https://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-WORKDIR
@@ -42,7 +42,7 @@ do_compile () {
 
 do_install () {
   install -m 0755 -d ${D}${bindir}
-  install -m 0755 ${S}/mqttify ${D}${bindir}/
+  install -m 0755 ${S}/subscriber ${D}${bindir}/
 
-  install -m 0755 -d ${D}${sysconfdir}/mqttify
+  install -m 0755 -d ${D}${sysconfdir}/subscriber
 }
